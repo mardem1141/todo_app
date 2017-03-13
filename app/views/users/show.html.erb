@@ -1,0 +1,16 @@
+
+<div class="row">
+  <aside class="span4">
+    <section>
+    <div>
+       <% if signed_in? %>
+            <%= render 'layouts/sign-in_show' %>   
+        <% else %>
+          <div class="center hero-unit">        
+             <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+          </div>   
+        <% end %>  
+     </div>   
+    </section>
+  </aside>
+</div>
