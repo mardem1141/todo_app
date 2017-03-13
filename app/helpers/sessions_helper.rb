@@ -25,6 +25,14 @@ module SessionsHelper
     @current_user = user
   end
 
+  def current_project=(project)
+    @current_project = project
+  end  
+
+  def current_project
+     @current_project ||= nil
+  end
+
   def current_user
     remember_token = User.encrypt(cookies[:remember_token])
     @current_user ||= User.find_by(remember_token: remember_token)

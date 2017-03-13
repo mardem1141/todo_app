@@ -1,0 +1,7 @@
+<li>
+  <span class="task-name"><%= task.name %></span>
+  <%= link_to "delete", task, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: task.name %>
+
+</li>

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   #get 'users/new'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :projects, only: [:create, :destroy]
+  resources :projects, only: [:create, :destroy] 
+     resources :tasks, only: [:create, :destroy] 
+  
   root  'users#show'
 
   match '/signup',  to: 'users#new',            via: 'get'

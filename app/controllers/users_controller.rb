@@ -4,6 +4,8 @@ class UsersController < ApplicationController
         @user=current_user 
         @projects = @user.projects
         @project = current_user.projects.build if signed_in?
+        @tasks = @project.tasks
+        @task = @project.tasks.build if signed_in?        
        #@user = User.find(params[:id])
     end
   end
