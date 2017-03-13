@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   def show
   	if signed_in? 
         @user=current_user 
+        @projects = @user.projects
+        @project = current_user.projects.build if signed_in?
        #@user = User.find(params[:id])
     end
   end
