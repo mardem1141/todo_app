@@ -1,7 +1,14 @@
-<li>
-  <span class="task-name"><%= task.name %></span>
-  <%= link_to "delete", task, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: task.name %>
 
+<li class="tasks" >
+<div class="task-name task-1"><%= task.name %></div>
+ 
+<div class="task-1 task-nav">
+
+
+    <div class="task-1 ">
+     <%= link_to image_tag("trash.png", alt:"delete"), task, method: :delete,
+                                         data: { confirm: "You sure?" },
+                                         title: task.name %>
+    </div>
+</div>
 </li>

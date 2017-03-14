@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     @task = current_project.tasks.build(task_params)
     if @task.save
     	@task.status = 'process'
-      flash[:success] = "Task created! "+params[:project_id]+@task.name
+      flash[:success] = "Task created! "+@task.name
       redirect_to root_url
     else
       redirect_to root_url
@@ -16,6 +16,7 @@ class TasksController < ApplicationController
    #   redirect_to root_url
    # end
   end
+	
 
   def destroy
    @task = Task.find(params[:id])

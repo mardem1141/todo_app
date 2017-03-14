@@ -1,7 +1,12 @@
-<%= form_for(@project) do |f| %>
-  <%= render 'shared/error_messages_projects', object: f.object %>
-  <div class="field">
-    <%= f.text_area :name, placeholder: "Project name" %>
-  </div>
-  <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+
+<%= form_for @project , html: { class: " form-inline project-form " }  do |f| %>
+ <%= render 'shared/error_messages_projects', object: f.object %>
+
+ 
+
+
+  <%= f.text_field :name, html: { class: " " }, placeholder: "Project name" %>
+
+  <%= f.submit "Add project", class: "btn  btn-primary " %>
+
 <% end %>

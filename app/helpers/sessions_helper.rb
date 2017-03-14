@@ -20,7 +20,19 @@ module SessionsHelper
   def signed_in?
     !current_user.nil?
   end
+  
 
+  def edit_status(task)
+    if task.status == "done" 
+      task.status = nil
+      flash[:success] = "Task created! "+task.name
+    else
+      task.status = "done"
+      flash[:success] = "Task created! "+task.name+task.status
+   
+    end   
+    return '#'
+  end
    def current_user=(user)
     @current_user = user
   end

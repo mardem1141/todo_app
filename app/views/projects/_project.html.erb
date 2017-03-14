@@ -1,43 +1,39 @@
 <% if project.name != nil %>
-<li>
-  <span class="name"><%= project.name %></span>
-  <span class="name">
+<div class ="projects">
+<li class="name">
+  <div  class="project-name"><%= project.name %></div>
 
-  </span>
   <% if current_user?(project.user) %>
-    <%= link_to "delete", project, method: :delete,
+    <%= link_to image_tag("trash.png", alt:"delete"), project,method: :delete, class: " right",
                                      data: { confirm: "You sure?" },
                                      title: project.name %>
   <% end %>
 </li>
 
-   <div class="span6">
-    <% if project.tasks.any? %>
-      <h3>Tasks (<%= project.tasks.count %>)</h3>
-      <ol class="tasks">
-        <%= render project.tasks %>
-      </ol>
-   
-    <% end %>
-  </div>
 
-
-   <%= link_to "Add task", '#', class: "btn btn-min btn-primary" %>
      <section>
 
 
-<%= form_for(@task) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <div class="field">
-
+<%= form_for @task, html: { class: " form-inline task-form" } do |f| %>
     <%= hidden_field_tag(:project_id, project.id) %>
-    <%= f.text_area :name, placeholder: "Compose new task..." %>
-  </div>
-  <%= f.submit "Post", class: "btn btn-mikro btn-primary" %>
+    <%= f.text_field :name, class: "task-text-field", placeholder: "New task..." %>
+   <%= f.submit "Add task", class: "btn task-btn " %>
 <% end %>
 
 
 
       </section>
+
+   <div class="">
+    <% if project.tasks.any? %>
+      <ul >
+        <%= render project.tasks %>
+      </ul>
+   
+    <% end %>
+  </div>
+
+
+ </div>
+
 <% end %>
